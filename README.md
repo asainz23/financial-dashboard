@@ -22,28 +22,37 @@ An automated tool designed for real-time market analysis, technical indicator ca
 * `.gitignore` — Configuration to ensure clean version control by excluding environments and cache.
 * `README.md` — Technical documentation and project setup guide.
 
-## Getting started
+## How to run the dashboard
 
-### Prerequisites
-
+### 1. Prerequisites
 * Python 3.12+ and PowerShell (Windows recommended).
-* Basic understanding of financial tickers and market periods.
+* Git installed on your system.
 
-### Application setup
+### 2. Setup and Installation
+First, clone the repository and set up your isolated environment to avoid dependency conflicts:
 
-1. Create a virtual environment and install dependencies:
+```powershell
+git clone [https://github.com/asainz23/financial-dashboard.git](https://github.com/asainz23/financial-dashboard.git)
 
-   ```powershell
-   python -m venv .venv
-   .\.venv\Scripts\activate
-   pip install pandas yfinance streamlit matplotlib numpy
-   ```
+cd financial-dashboard
+python -m venv .venv
+.\.venv\Scripts\activate
 
-2. Run the application:
+pip install pandas yfinance streamlit matplotlib numpy
+```
 
-   ```powershell
-   streamlit run src/app.py
-   ```
+### 3. Launching the Web App
+With your virtual environment active (you should see `(.venv)` in your terminal prompt), start the Streamlit server by running:
+
+```powershell
+streamlit run src/app.py
+```
+
+### 4. Accessing the UI
+Once the server is running, the dashboard will automatically open in your default web browser. If it doesn't, you can manually connect by navigating to this address in your browser:
+* **Local URL:** `http://localhost:8501`
+
+*(To stop the server at any time, simply press `Ctrl + C` in your terminal).*
 
 ## Roadmap
 
