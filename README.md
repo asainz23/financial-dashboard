@@ -1,39 +1,55 @@
-# Financial Screener Pro
+# Financial Market Data Screener & Dashboard
 
-Automated market analysis for real-time stock insights. This dashboard handles data ingestion, quantitative normalization, trend identification, and risk profiling to return clean-language insights plus interactive visualizations.
+An automated tool designed for real-time market analysis, technical indicator calculation, and risk visualization. This project bridges the gap between raw financial data and actionable insights through a clean, interactive web interface.
 
 ## Why it matters
 
-* **Accessibility:** Translates raw market data into concise, easy-to-read financial summaries.
-* **Accuracy:** Uses logarithmic returns and SMA filters to avoid skewed performance data.
-* **Speed:** Orchestrates yfinance + Streamlit stages so analysts get guidance within seconds.
+* **Accessibility:** Allows users to monitor any publicly traded asset available on Yahoo Finance through an intuitive UI.
+* **Accuracy:** Focuses on Logarithmic Returns ($r = \ln(P_t / P_{t-1})$) to ensure mathematical consistency and time-additivity in risk profiling.
+* **Trend Insight:** Leverages Moving Averages (SMA 20) to effectively filter market noise and identify short-term momentum.
 
 ## Architecture at a glance
 
-* **Frontend (Streamlit):** Handles user inputs (tickers/periods) and renders interactive price charts and risk distributions.
-* **Logic (Pandas/NumPy):** Performs vectorized operations for Logarithmic Returns and Moving Average (SMA) calculations.
-* **Data Layer (yfinance):** Connects to Yahoo Finance API for real-time and historical price data extraction.
-* **Environment:** Isolated Python venv to ensure consistent dependency management and reproducibility.
+* **Frontend (Streamlit):** Interactive dashboard featuring user-defined time horizons (6mo to 5y) and dynamic ticker search (e.g., `SAN.MC`, `AAPL`).
+* **Logic (Pandas & NumPy):** Vectorized financial pipeline for indicator calculation and automated data cleaning (handling of splits, dividends, and NaNs).
+* **Visualization (Matplotlib):** Renders high-fidelity trend charts and frequency distributions for volatility analysis.
+* **Environment (Python Venv):** Isolated system using Python 3.12+ to ensure dependency stability and reproducibility.
 
 ## Repository layout
 
-* `notebooks/` — Research & Development lab. Contains experimental data extraction and plotting.
-* `src/` — Production-ready code. Contains the main Streamlit application logic.
-* `.gitignore` — Template for environment variables and ignored Python cache files.
-* `requirements.txt` — Project dependencies (Pandas, yfinance, Streamlit).
+* `notebooks/` — Research & Development environment containing experimental data extraction and plotting.
+* `src/` — Production-ready source code. Includes the main `app.py` for the Streamlit web application.
+* `.gitignore` — Configuration to ensure clean version control by excluding environments and cache.
+* `README.md` — Technical documentation and project setup guide.
 
 ## Getting started
 
 ### Prerequisites
 
-* Python 3.11+ and PowerShell (Windows users).
-* Basic understanding of financial tickers (e.g., AAPL, SAN.MC).
+* Python 3.12+ and PowerShell (Windows recommended).
+* Basic understanding of financial tickers and market periods.
 
-### Backend setup
+### Application setup
 
 1. Create a virtual environment and install dependencies:
 
-   ```bash
+   ```powershell
    python -m venv .venv
    .\.venv\Scripts\activate
-   pip install pandas yfinance streamlit
+   pip install pandas yfinance streamlit matplotlib numpy
+   ```
+
+2. Run the application:
+
+   ```powershell
+   streamlit run src/app.py
+   ```
+
+## Roadmap
+
+- [ ] Add RSI (Relative Strength Index) calculation for overbought/oversold signals.
+- [ ] Implement Monte Carlo simulations for future price forecasting.
+- [ ] Export automated analysis reports to PDF or Excel.
+
+---
+**Author:** Alejandro Sainz Muñoz – *Business Analytics Student*
