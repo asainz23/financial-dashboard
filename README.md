@@ -1,34 +1,39 @@
-📈 Financial Market Data Screener & Dashboard
-An automated tool designed for real-time market analysis, technical indicator calculation, and risk visualization. This project bridges the gap between raw financial data and actionable insights through a clean, interactive web interface.
+# Financial Screener Pro
 
-🚀 Project Overview
-This dashboard allows users to monitor any publicly traded asset available on Yahoo Finance. It focuses on two core pillars of financial analysis:Trend Identification: Using Moving Averages (SMA 20) to filter market noise and identify short-term momentum.Risk Profiling: Utilizing Logarithmic Returns to analyze price distribution and volatility—a standard practice in quantitative finance for its time-additivity properties.
+Automated market analysis for real-time stock insights. This dashboard handles data ingestion, quantitative normalization, trend identification, and risk profiling to return clean-language insights plus interactive visualizations.
 
-🛠️ Tech StackLanguage: Python 3.12+Data Source: yfinance (Real-time market API)
-Data Manipulation: Pandas & NumPy (Vectorized financial operations)
-Visualization: Matplotlib (Static analysis) & Streamlit (Interactive UI)
-Environment Management: Python Venv
+## Why it matters
 
-📂 Project Structure
-Plaintextfinancial-dashboard/
-├── .venv/                # Isolated virtual environment
-├── notebooks/            # Research & Development (Jupyter Notebooks)
-│   └── 01_data_extraction.ipynb
-├── src/                  # Production-ready source code
-│   └── app.py            # Streamlit Web Application
-├── .gitignore            # Ensures clean version control
-└── README.md             # Project documentation
+* **Accessibility:** Translates raw market data into concise, easy-to-read financial summaries.
+* **Accuracy:** Uses logarithmic returns and SMA filters to avoid skewed performance data.
+* **Speed:** Orchestrates yfinance + Streamlit stages so analysts get guidance within seconds.
 
-⚙️ Key Features
-Dynamic Ticker Search: Instantly fetch data for any global ticker (e.g., SAN.MC, AAPL, BTC-USD).Quant Logic: Implementation of Logarithmic Returns ($r = \ln(P_t / P_{t-1})$) for more accurate statistical modeling.Interactive Controls: User-defined time horizons (6 months to 5 years) via a sidebar interface.Automated Cleaning: Built-in handling of dividends, stock splits, and missing data points (NaN handling).
+## Architecture at a glance
 
-📥 Installation & Usage
-Clone the repository:Bashgit clone https://github.com/YOUR_USERNAME/financial-dashboard.git
-cd financial-dashboard
-Activate the environment:Bash# Windows
-.\.venv\Scripts\activate
-Run the application:Bashstreamlit run src/app.py
-📈 Roadmap
-[ ] Add RSI (Relative Strength Index) calculation.[ ] Implement Monte Carlo simulations for price forecasting.[ ] Export analysis reports to PDF/Excel.
+* **Frontend (Streamlit):** Handles user inputs (tickers/periods) and renders interactive price charts and risk distributions.
+* **Logic (Pandas/NumPy):** Performs vectorized operations for Logarithmic Returns and Moving Average (SMA) calculations.
+* **Data Layer (yfinance):** Connects to Yahoo Finance API for real-time and historical price data extraction.
+* **Environment:** Isolated Python venv to ensure consistent dependency management and reproducibility.
 
-Author: [Alejandro Sainz Muñoz] – Business Analytics Student
+## Repository layout
+
+* `notebooks/` — Research & Development lab. Contains experimental data extraction and plotting.
+* `src/` — Production-ready code. Contains the main Streamlit application logic.
+* `.gitignore` — Template for environment variables and ignored Python cache files.
+* `requirements.txt` — Project dependencies (Pandas, yfinance, Streamlit).
+
+## Getting started
+
+### Prerequisites
+
+* Python 3.11+ and PowerShell (Windows users).
+* Basic understanding of financial tickers (e.g., AAPL, SAN.MC).
+
+### Backend setup
+
+1. Create a virtual environment and install dependencies:
+
+   ```bash
+   python -m venv .venv
+   .\.venv\Scripts\activate
+   pip install pandas yfinance streamlit
