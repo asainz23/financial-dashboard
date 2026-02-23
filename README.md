@@ -5,7 +5,7 @@ An automated tool designed for real-time market analysis, technical indicator ca
 ## Why it matters
 
 * **Accessibility:** Allows users to monitor any publicly traded asset available on Yahoo Finance through an intuitive UI.
-* **Accuracy:** Focuses on Logarithmic Returns ($r = \ln(P_t / P_{t-1})$) to ensure mathematical consistency and time-additivity in risk profiling.
+* **Accuracy:** Focuses on Logarithmic Returns to ensure mathematical consistency and time-additivity in risk profiling.
 * **Trend Insight:** Leverages Moving Averages (SMA 20) to effectively filter market noise and identify short-term momentum.
 
 ## Architecture at a glance
